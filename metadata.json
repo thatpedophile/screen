@@ -1,0 +1,11 @@
+{
+  "name": "Remix: Screen Share Room",
+  "description": "A secure screen and camera sharing platform where streamers can broadcast and watchers can view by entering a room ID and password.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

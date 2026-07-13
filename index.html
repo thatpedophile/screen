@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Share Room - Secure Screen & Camera Broadcast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Fix for "Cannot set property fetch of #<Window> which has only a getter" in iframe environments
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var fetchVal = originalFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return fetchVal;
+            },
+            set: function(val) {
+              fetchVal = val;
+            },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof globalThis !== 'undefined' && globalThis !== window) {
+            Object.defineProperty(globalThis, 'fetch', {
+              get: function() {
+                return fetchVal;
+              },
+              set: function(val) {
+                fetchVal = val;
+              },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          console.warn("Could not patch window.fetch with getter/setter:", e);
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[#0b0f19] text-gray-100 antialiased selection:bg-indigo-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
